@@ -4,13 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # use fashion_mnist datasets for training the neural network model
-data = keras.datasets.fashion_mnist
+data = keras.datasets.mnist
 
 (train_images, train_labels), (test_images, test_labels) = data.load_data()
-
-# class names for representing the labels(0-9) to string for us to understand
-class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
-               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 # shrink the data from 0-255 to 0-1, to make it easier to compute
 train_images = train_images/255.0
@@ -50,6 +46,6 @@ prediction = model.predict(test_images)
 for i in range(5):
     plt.grid(False)
     plt.imshow(test_images[i+5], cmap=plt.cm.binary)
-    plt.xlabel("Actual: " + class_names[test_labels[i+5]])
-    plt.title("Prediction" + class_names[np.argmax(prediction[i+5])])
+    plt.xlabel("Actual: " + str(test_labels[i+5]))
+    plt.title("Prediction: " + str(np.argmax(prediction[i+5])))
     plt.show()
