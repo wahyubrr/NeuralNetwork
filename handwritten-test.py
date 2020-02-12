@@ -43,7 +43,7 @@ model.fit(train_images, train_labels, epochs = 5)
 prediction = model.predict(test_images)
 
 # to predict 5 times
-for i in range(5):
+for i in range(15):
     plt.grid(False)
     plt.imshow(test_images[i+5], cmap=plt.cm.binary)
     plt.xlabel("Actual: " + str(test_labels[i+5]))
